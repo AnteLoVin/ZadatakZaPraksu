@@ -38,7 +38,7 @@ class cyclicPrint
 
 class signalClass
 {
-    bool a = true, b = true, c = true;
+    bool a = false, b = false, c = false;
     bool* pointerArray[3] = { &a, &b, &c };
 
     public:bool** GetArrayAddress() 
@@ -115,7 +115,7 @@ int main()
     cyclicPrint printing;
     printing.GetAddresses(setSignala.GetArrayAddress());
     std::thread parallelPrint([&printing]() {printing.Start(); });
-    
+    setSignala.TurnOn();
     std::cin >> unos;
     while (unos != "stop")
     {
